@@ -5,12 +5,12 @@ import json
 import requests
 # turn off warninggs
 requests.packages.urllib3.disable_warnings()
-from dnac_config import DNAC, DNAC_USER, DNAC_PASSWORD
+from dnac_config import DNAC, DNAC_USER, DNAC_PASSWORD, DNAC_VERSION
 
 from dnacentersdk import api
 
 dnac = api.DNACenterAPI(base_url='https://{}:443'.format(DNAC),
-                                username=DNAC_USER,password=DNAC_PASSWORD,verify=False)
+                                username=DNAC_USER,password=DNAC_PASSWORD,version=DNAC_VERSION,verify=False)
 
 network_health= dnac.networks.get_overall_network_health(timestamp='')
 #print (json.dumps(network_health,indent=2))
